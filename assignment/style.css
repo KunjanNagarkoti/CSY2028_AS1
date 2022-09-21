@@ -7,10 +7,22 @@
     }
 
 nav ul ul {overflow: hidden;
-     position: absolute; display: block; background-color: #333; width: 200px; margin-left: 20px; max-height: 0px; -webkit-transition: max-height 0.5s; transition: max-height 1s;}
+     position: absolute;
+      display: block; 
+      background-color: #333;
+       width: 200px; 
+       margin-left: 20px; 
+       max-height: 0px; -webkit-transition: max-height 0.5s; 
+       transition: max-height 1s;}
 
-nav li:hover ul {  max-height: 500px;}
-nav ul ul li {float: none; width: auto; }
+nav li:hover ul { 
+     max-height: 500px;
+    }
+
+nav ul ul li 
+{float: none;
+     width: auto;
+     }
 
 html {font-family: 'Oxygen-Regular', times, verdana, sans-serif; }
 
@@ -36,7 +48,14 @@ header h1 {font-weight: bold; font-style: italic;}
 
 h1 { font-size:4em; color: white; text-align: center; padding-top: 20px; text-shadow: 2px 2px 2px #000;}
 
-main {min-height: 50vh; background-color: #ddd; width: 70vw; display: block; margin: auto; box-shadow: 0px 0px 10px #888; color:#444;}
+main {
+    min-height: 90vh;
+     background-color: #ddd; 
+     width: 70vw; 
+     display: block;
+      margin: auto; 
+      box-shadow: 0px 0px 10px #888;
+       color:#444;}
 
 main h2 {font-size:2em;}
 .home {padding: 5vw; width: 60vw;}
@@ -91,3 +110,20 @@ main > article {display: table-cell; padding: 2em;}
 main > nav {display: table-cell; width: 20%; padding: 2em;}
 main > nav li {float: none; width: auto; text-align: left;}
 main > nav ul {width: auto;}
+
+
+/* For login and Rgister button */
+button{
+    padding:10px;
+    background-color: #333;
+    color:white;
+    border-radius: 5px;
+
+}
+#btn{
+    float: right;
+    margin-right: 20px;
+
+
+}
+
