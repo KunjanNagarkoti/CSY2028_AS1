@@ -5,7 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Northampton News - Home</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
     <script src='main.js' defer></script>
 </head>
 	<?php require_once './include/header.php';?>
@@ -17,7 +17,7 @@
 			<nav>
 				<ul>
 					<li><a href="#">Sidebar</a></li>
-					<li><a href="#">This can</a></li>
+					<li><a href="#">Add Category</a></li>
 					<li><a href="#">Be removed</a></li>
 					<li><a href="#">When not needed</a></li>
 				</ul>
