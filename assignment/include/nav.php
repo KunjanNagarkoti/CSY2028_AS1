@@ -8,8 +8,8 @@
 						<li><a class="articleLink" href="#">Entertainment</a></li>
 						<li><a class="articleLink" href="#">Sports</a></li>
 					</ul>
-					<a href="registration.php">
-				<li><a href="registration.php">Sign Up</a></li>
+				
+				<li><a href="./form/register.php">Sign Up</a></li>
 				</a>
 				</li>
 			</ul>
