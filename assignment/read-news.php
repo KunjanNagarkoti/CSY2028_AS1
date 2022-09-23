@@ -18,7 +18,7 @@
             <div class="news">
                 <?php
                     // get the database handler
-                    $dbh = connect_to_db(); // function created in dbconnect, remember?
+                    require_once 'dbconnect.php'; // function created in dbconnect, remember?
 
                     $id_article = (int)$_GET['newsid'];
 
@@ -72,7 +72,10 @@
 
             <?php
             // get the database handler
-            $dbh = connect_to_db(); // function created in dbconnect, remember?
+            // $dbh = connect_to_db(); 
+            // function created in dbconnect, remember?
+
+            require_once 'dbconnect.php';
             // Fecth news
             $news = fetchNews($dbh);
         ?>

@@ -14,7 +14,14 @@
 		<img src="images/banners/randombanner.php" />
 		<main>
 			<!-- Delete the <nav> element if the sidebar is not required -->
-			
+			<nav>
+				<ul>
+					<li><a href="#">Sidebar</a></li>
+					<li><a href="#">Add Category</a></li>
+					<li><a href="#">Be removed</a></li>
+					<li><a href="#">When not needed</a></li>
+				</ul>
+			</nav>
 		
 	
 		

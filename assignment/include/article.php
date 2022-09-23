@@ -1,23 +1,59 @@
 
 <article>
-				<h2>A Page Heading</h2>
-				<p>Text goes in paragraphs</p>
+				<h2>Article</h2>
+				<!-- <p>Post</p> -->
 				
 
-				<ul>
-					<li>This is a list</li>
-					<li>With multiple</li>
-					<li>List items</li>
-				</ul>
+				<!-- <ul>
+					<li>Add Article</li>
+					
+					<li>Log Out</li>
+				</ul> -->
 
 
-				<form>
-					<p>Forms are styled like so:</p>
+				<form action="admin.php" method="POST">	
+					<p>Add Article</p>
 
-					<label>Field 1</label> <input type="text" />
-					<label>Field 2</label> <input type="text" />
-					<label>Textarea</label> <textarea></textarea>
+					<label>Article Title</label> <input type="text" name="title"/>
+					<label>Article Description</label> <textarea name="desc"></textarea>
+					<label>Author</label> <input type="text" name="author">
+					<label>Category</label>
 
-					<input type="submit" name="submit" value="Submit" />
+						<select name="Category" id="category">
+						<option value="Technology">Technology</option>
+						<option value="Sports">Sports</option>
+						<option value="Entertainment">Entertainment</option>
+					
+						</select>	
+					
+
+					<input type="submit" name="submit" value="submit" />
 				</form>
 			</article>
+		
+				
+	<?php
+    	 require_once '../dbconnect.php';
+   				 if(ISSET($_POST['submit'])){
+					
+				 }
+
+        $title = $_POST['title'];
+        $desc = $_POST['desc'];
+		$author = $_POST['author'];
+	
+		$sql = "INSERT INTO articles(title, desc, author)
+           VALUES (:title, :desc, :author)');
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([
+                ':title' => $title,
+                ':desc' => $desc,
+                ':author' => $author
+            ]);
+
+			}
+			?>
+
+			
+		
+

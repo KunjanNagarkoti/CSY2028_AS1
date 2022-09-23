@@ -22,8 +22,10 @@
 		<main>
             
            
-		<form action="login.php" method="POST">	
+		<form action="../Article/admin.php" method="POST">	
 				<h3 class="reg">Log In here...</h3>
+				<h4 class="reg">admin</h4>
+				<h4 class="reg">admin</h4>
 				
 			
 
@@ -38,7 +40,7 @@
 
                 <label>
                     <button>
-                <a href="../index.php"> 
+                <a href="../Article/admin.php"> 
                     Login 
                 </a>
                     </button>
@@ -95,7 +97,7 @@
 	
 	require_once '../dbconnect.php';
 	
-	if(ISSET($_POST['login'])){
+	if(ISSET($_POST['POST'])){
 		if($_POST['email'] != "" || $_POST['password'] != ""){
 			$email = $_POST['email'];
 			// md5 encrypted
