@@ -47,9 +47,14 @@ function load_file($name) {
 	ob_start();
 
 	/*
-	* Read the contents of the file
+	* Load the file into the buffer
 	*/
-	$contents = file_get_contents($name);
+	include($name);
+
+	/*
+	* Read the contents of the buffer and clean it
+	*/
+	$contents = ob_get_clean();
 	
 	return $contents;
 }

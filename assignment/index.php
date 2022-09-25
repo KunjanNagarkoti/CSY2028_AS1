@@ -1,83 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Northampton News - Home</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
-    <script src='main.js' defer></script>
-</head>
-	<?php require_once './include/header.php';?>
 
-		<?php require_once './include/nav.php';?>
-		<img src="images/banners/randombanner.php" />
-		<main>
-			<!-- Delete the <nav> element if the sidebar is not required -->
-			
-		
+<?php session_start(); ?>
+
+<?php require_once './includes/header.php';  ?>
+<?php require_once './includes/navigation.php'; ?>
+
+
+<img src="./images/banners/randombanner.php"   style="height:140px;width: 100%"  />
+
+
+
+<div class="article_part_body">
+
+<?php
+//getting data /posts from the posts table according to post views and applying limit of 2
+$stmt1 = $pdo -> prepare ("SELECT * FROM posts ORDER BY post_views DESC LIMIT 0 , 2");
+$stmt1->execute();
+$post_data = $stmt1-> fetch();
+$post_title_name = $post_data['post_title'];
+$post_details = substr( $post_data['post_detail'] , 0,200) ;
+$post_author_name = $post_data['post_author'];
+$post_date = $post_data['post_date'];
+$post_cat =$post_data['post_category'];
+$post_views =$post_data['post_views'];
+$post_ids =$post_data['post_id'];
+$post_image =$post_data['post_image'];
+$post_id =$post_data['post_id'];
+ ?>
+
+
+	<h2>Popular Post: <span class="post-author pv">Author: <a href="./author_post.php?author_name=<?php echo $post_author_name; ?>"><?php echo $post_author_name; ?></a> :  </span> 
+    <span class="post-views pv"> post views: <?php echo $post_views; ?>  :</span>
+    <span class="post-date pv">   Post Date: <?php echo $post_date; ?></span>
+    <span class="post-date pv">Category: <a href="./categories_page.php?cat_name=<?php echo $post_cat; ?>"><?php echo $post_cat; ?></a></span>
+	</h2> 
 	
-		
+	<div class="article_part">
+
+		<div class="latest-main-article"> 
+      <div class="post-title"> <a href="./single-post-page.php?post_id=<?php echo $post_ids ?>"><h2><?php echo $post_title_name; ?> </h2></a>   </div> <br>
+
+      <img src="./images/<?php echo $post_image?>" style="height: 200px; width: 350px;margin-left: 23%; margin-top: 0px">
 
 
-				            
-			  <div class="news">                    
-				 <h2><a href="read-news.php?newsid=1">First news title here</a></h2>  
-					   <p> This news short description will be displayed at this particular place. This news short description will be displayed at this particular place.</p>      
-		 			<span>published on Jan, 12th 2015 by zooboole</span>  
-       		 </div>                    
-		 	<div class="news">  
-	     	<h2><a href="read-news.php?newsid=2">Second news title here</a></h2>                  
-		 	 <p>This news short description will be displayed at this particular place. This news short description will be displayed at this particular place.</p>    
-
-		 		 <span>published on Jan, 12th 2015 by zooboole</span>  
-			</div>    
-			<div class="news"> 
-			<h2><a href="read-news.php?newsid=3">Thirst news title here</a></h2>  
-			<p>This news short description will be displayed at this particular place. This news short description will be displayed at this particular place.</p>  
-			<span>published on Jan, 12th 2015 by zooboole</span> 
-			</div>            
-				<div class="news">
-				<h2><a href="read-news.php?newsid=4">Fourth news title here</a></h2> 
-						<p>This news short description will be displayed at this particular place. This news short description will be displayed at this particular place.</p>    
-						<span>published on Jan, 12th 2015 by zooboole</span>    
-							</div>     
-						</div>        
-						
-
-
-
-
-		 </main>
-		<?php require_once './include/footer.php';?>
-
-		</body>
-
-			<?php 
-		require_once 'dbconnect.php';
-
-		function fetchNews( $conn )
-		{
-
-			$request = $conn->prepare(" SELECT news_id, news_title, news_short_description, news_author, news_published_on FROM info_news ORDER BY news_published_on DESC ");
-			return $request->execute() ? $request->fetchAll() : false; 
-		}
-
-		function getAnArticle( $id_article, $conn )
-		{
-
-			$request =  $conn->prepare(" SELECT news_id,  news_title, news_full_content, news_author, news_published_on FROM info_news  WHERE news_id = ? ");
-			return $request->execute(array($id_article)) ? $request->fetchAll() : false; 
-		}
-
-		function getOtherArticles( $differ_id, $conn )
-		{
-			$request =  $conn->prepare(" SELECT news_id,  news_title, news_short_description, news_full_content, news_author, news_published_on FROM info_news  WHERE news_id != ? ");
-			return $request->execute(array($differ_id)) ? $request->fetchAll() : false; 
-		}
-
-
-	?>
-
+       <p class="post-details"> <?php echo $post_details; ?></p>
+	</div>
 	
-</html>
+</div>
+
+<?php require_once './includes/footer.php'; ?>
